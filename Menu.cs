@@ -12,7 +12,7 @@ namespace SpaceAIDS
 {
     public partial class Menu : Form
     {
-        System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.music);
+        System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.mainMusic);
         public Menu()
         {
             InitializeComponent();

@@ -171,7 +171,7 @@
             this.pB_Buff.BackColor = System.Drawing.Color.Transparent;
             this.pB_Buff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pB_Buff.Image = global::SpaceAIDS.Properties.Resources.buff;
-            this.pB_Buff.Location = new System.Drawing.Point(396, 312);
+            this.pB_Buff.Location = new System.Drawing.Point(256, -2);
             this.pB_Buff.Name = "pB_Buff";
             this.pB_Buff.Size = new System.Drawing.Size(44, 46);
             this.pB_Buff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

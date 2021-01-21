@@ -182,6 +182,15 @@ namespace SpaceAIDS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mainMusic {
+            get {
+                return ResourceManager.GetStream("mainMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream music {
             get {
                 return ResourceManager.GetStream("music", resourceCulture);

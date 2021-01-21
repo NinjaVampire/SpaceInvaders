@@ -169,7 +169,7 @@ namespace SpaceAIDS
             pB_Buff.Top += buffSpeed;
 
 
-            /*if (pB_Enemy1.Top > 569)
+            if (pB_Enemy1.Top > 569)
             {
                 LoseHealth();
             }
@@ -180,7 +180,7 @@ namespace SpaceAIDS
             else if (pB_Enemy3.Top > 569)
             {
                 LoseHealth();
-            }*/
+            }
 
             if (goLeft == true && pB_Player.Left > 0)
             {
