@@ -26,6 +26,7 @@ namespace SpaceAIDS
             InitializeComponent();
             base.DoubleBuffered = true;
             Reset();
+            sound.PlayLooping();
         }
 
         private void keyisdown(object sender, KeyEventArgs e)
@@ -55,7 +56,7 @@ namespace SpaceAIDS
 
         private void gameOver()
         {
-            //gameOver_sound.Play();
+            gameOverSound.Play();
             timer_Game.Stop();
             label_Score.Text += Environment.NewLine + "Game Over!" + Environment.NewLine + $@"Score: {score}";
         }
@@ -66,29 +67,45 @@ namespace SpaceAIDS
                 {
                     health -= enemyDamage;
                     pB_Health1.Image = Properties.Resources.emptyHeart;
-                    this.enemyDamage = 0;
+                //this.enemyDamage = 0;
+                    DeSpawnEnemy();
                 }
                 else if (health == 2)
                 {
                     health -= enemyDamage;
                     pB_Health2.Image = Properties.Resources.emptyHeart;
-                    this.enemyDamage = 0;
+                //this.enemyDamage = 0;
+                DeSpawnEnemy();
                 }
                 else if (health == 1)
                 {
-                    health -= enemyDamage;
+                    health = 0;
                     pB_Health3.Image = Properties.Resources.emptyHeart;
-                    this.enemyDamage = 0;
-                }
-                else if (health == 0)
-                {
+                //this.enemyDamage = 0;
+                    DeSpawnEnemy();
                     gameOver();
                 }
         }
 
         private void DeSpawnEnemy()
         {
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy1.Bounds))
+            if (pB_Player.Bounds.IntersectsWith(pB_Enemy1.Bounds))
+            {
+                pB_Enemy1.Enabled = false;
+            }
+            if (pB_Player.Bounds.IntersectsWith(pB_Enemy2.Bounds))
+            {
+                pB_Enemy2.Enabled = false;
+            }
+            if (pB_Player.Bounds.IntersectsWith(pB_Enemy3.Bounds))
+            {
+                pB_Enemy3.Enabled = false;
+            }
+            else if (pB_Player.Bounds.IntersectsWith(pB_Asteroid1.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Asteroid2.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Asteroid3.Bounds))
+            {
+                LoseHealth();
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy1.Bounds) || pB_Enemy1.Top > 569)
             {
                 score++;
 
@@ -97,7 +114,7 @@ namespace SpaceAIDS
 
                 shooting = false;
             }
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy2.Bounds))
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy2.Bounds) || pB_Enemy2.Top > 569)
             {
                 score++;
 
@@ -106,7 +123,7 @@ namespace SpaceAIDS
 
                 shooting = false;
             }
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy3.Bounds))
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy3.Bounds) || pB_Enemy3.Top > 569)
             {
                 score++;
 
@@ -115,21 +132,21 @@ namespace SpaceAIDS
 
                 shooting = false;
             }
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid1.Bounds))
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid1.Bounds) || pB_Asteroid1.Top > 569)
             {
                 pB_Asteroid1.Top = -450;
                 pB_Asteroid1.Left = rnd.Next(20, 510);
 
                 shooting = false;
             }
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid2.Bounds))
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid2.Bounds) || pB_Asteroid2.Top > 569)
             {
                 pB_Asteroid2.Top = -720;
                 pB_Asteroid2.Left = rnd.Next(20, 510);
 
                 shooting = false;
             }
-            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid3.Bounds))
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid3.Bounds) || pB_Asteroid3.Top > 569)
             {
                 pB_Asteroid3.Top = -630;
                 pB_Asteroid3.Left = rnd.Next(20, 510);
@@ -152,7 +169,7 @@ namespace SpaceAIDS
             pB_Buff.Top += buffSpeed;
 
 
-            if (pB_Enemy1.Top > 569)
+            /*if (pB_Enemy1.Top > 569)
             {
                 LoseHealth();
             }
@@ -163,7 +180,7 @@ namespace SpaceAIDS
             else if (pB_Enemy3.Top > 569)
             {
                 LoseHealth();
-            }
+            }*/
 
             if (goLeft == true && pB_Player.Left > 0)
             {
@@ -175,18 +192,9 @@ namespace SpaceAIDS
             }
             //Движението свършва тук
 
-            //Проверка на boundary-тата започва тук
             if (pB_Player.Bounds.IntersectsWith(pB_Buff.Bounds))
             {
                 pB_Bullet.Image = Properties.Resources.bullet2;
-            }
-            if (pB_Player.Bounds.IntersectsWith(pB_Enemy1.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Enemy2.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Enemy3.Bounds))
-            {
-                LoseHealth();
-            }
-            else if (pB_Player.Bounds.IntersectsWith(pB_Asteroid1.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Asteroid2.Bounds) || pB_Player.Bounds.IntersectsWith(pB_Asteroid3.Bounds))
-            {
-                LoseHealth();
             }
 
             if (shooting == true)

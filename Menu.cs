@@ -12,10 +12,11 @@ namespace SpaceAIDS
 {
     public partial class Menu : Form
     {
-
+        System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.music);
         public Menu()
         {
             InitializeComponent();
+            sound.PlayLooping();
         }
         
         private void bttn_Play_Click(object sender, EventArgs e)
