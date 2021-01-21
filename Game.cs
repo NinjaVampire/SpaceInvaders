@@ -15,9 +15,11 @@ namespace SpaceAIDS
         int health = 3;
         int enemyDamage = 1;
         int score, enemySpeed, buffSpeed, asteroidSpeed, bulletSpeed;
-        int playerSpeed = 12;
+        int playerSpeed = 5;
         Random rnd = new Random();
         bool goLeft, goRight, shooting;
+        System.Media.SoundPlayer sound = new System.Media.SoundPlayer(Properties.Resources.music);
+        System.Media.SoundPlayer gameOverSound = new System.Media.SoundPlayer(Properties.Resources.gameOver);
 
         public Game()
         {
@@ -55,7 +57,7 @@ namespace SpaceAIDS
         {
             //gameOver_sound.Play();
             timer_Game.Stop();
-            label_Score.Text += Environment.NewLine + "Game Over!" + Environment.NewLine + $@"Score: {score}"; //Podleji na promqna!
+            label_Score.Text += Environment.NewLine + "Game Over!" + Environment.NewLine + $@"Score: {score}";
         }
 
         private void LoseHealth()
@@ -82,6 +84,58 @@ namespace SpaceAIDS
                 {
                     gameOver();
                 }
+        }
+
+        private void DeSpawnEnemy()
+        {
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy1.Bounds))
+            {
+                score++;
+
+                pB_Enemy1.Top = -450;
+                pB_Enemy1.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy2.Bounds))
+            {
+                score++;
+
+                pB_Enemy2.Top = -720;
+                pB_Enemy2.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy3.Bounds))
+            {
+                score++;
+
+                pB_Enemy3.Top = -630;
+                pB_Enemy3.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid1.Bounds))
+            {
+                pB_Asteroid1.Top = -450;
+                pB_Asteroid1.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid2.Bounds))
+            {
+                pB_Asteroid2.Top = -720;
+                pB_Asteroid2.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid3.Bounds))
+            {
+                pB_Asteroid3.Top = -630;
+                pB_Asteroid3.Left = rnd.Next(20, 510);
+
+                shooting = false;
+            }
         }
 
         private void timer_Game_Tick(object sender, EventArgs e)
@@ -146,36 +200,33 @@ namespace SpaceAIDS
                 bulletSpeed = 0;
             }
 
-            if (pB_Bullet.Top < -30)
-            {
-                shooting = false;
-            }
-
             if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy1.Bounds))
             {
-                score++;
-
-                pB_Enemy1.Top = -450;
-                pB_Enemy1.Left = rnd.Next(20, 580);
-                
-                shooting = false;
+                DeSpawnEnemy();
             }
             if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy2.Bounds))
             {
-                score++;
-
-                pB_Enemy2.Top = -720;
-                pB_Enemy2.Left = rnd.Next(20, 580);
-
-                shooting = false;
+                DeSpawnEnemy();
             }
             if (pB_Bullet.Bounds.IntersectsWith(pB_Enemy3.Bounds))
             {
-                score++;
+                DeSpawnEnemy();
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid1.Bounds))
+            {
+                DeSpawnEnemy();
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid2.Bounds))
+            {
+                DeSpawnEnemy();
+            }
+            if (pB_Bullet.Bounds.IntersectsWith(pB_Asteroid3.Bounds))
+            {
+                DeSpawnEnemy();
+            }
 
-                pB_Enemy3.Top = -630;
-                pB_Enemy3.Left = rnd.Next(20, 580);
-
+            if (pB_Bullet.Top < -30)
+            {
                 shooting = false;
             }
 
