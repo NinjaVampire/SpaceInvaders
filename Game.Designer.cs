@@ -36,26 +36,26 @@
             this.pB_Health3 = new System.Windows.Forms.PictureBox();
             this.label_Score = new System.Windows.Forms.Label();
             this.pB_Enemy1 = new System.Windows.Forms.PictureBox();
-            this.pB_Enemy2 = new System.Windows.Forms.PictureBox();
             this.pB_Asteroid1 = new System.Windows.Forms.PictureBox();
-            this.pB_Enemy3 = new System.Windows.Forms.PictureBox();
             this.pB_Buff = new System.Windows.Forms.PictureBox();
             this.pB_Asteroid2 = new System.Windows.Forms.PictureBox();
             this.pB_Asteroid3 = new System.Windows.Forms.PictureBox();
             this.timer_Game = new System.Windows.Forms.Timer(this.components);
             this.pB_Bullet = new System.Windows.Forms.PictureBox();
+            this.pB_Enemy2 = new System.Windows.Forms.PictureBox();
+            this.pB_Enemy3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Health1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Health2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Health3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Buff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Bullet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy3)).BeginInit();
             this.SuspendLayout();
             // 
             // pB_Player
@@ -125,22 +125,10 @@
             this.pB_Enemy1.Image = global::SpaceAIDS.Properties.Resources.enemy_Purple;
             this.pB_Enemy1.Location = new System.Drawing.Point(378, 60);
             this.pB_Enemy1.Name = "pB_Enemy1";
-            this.pB_Enemy1.Size = new System.Drawing.Size(62, 50);
+            this.pB_Enemy1.Size = new System.Drawing.Size(88, 62);
             this.pB_Enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pB_Enemy1.TabIndex = 5;
             this.pB_Enemy1.TabStop = false;
-            // 
-            // pB_Enemy2
-            // 
-            this.pB_Enemy2.BackColor = System.Drawing.Color.Transparent;
-            this.pB_Enemy2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pB_Enemy2.Image = global::SpaceAIDS.Properties.Resources.enemy_Green;
-            this.pB_Enemy2.Location = new System.Drawing.Point(67, 60);
-            this.pB_Enemy2.Name = "pB_Enemy2";
-            this.pB_Enemy2.Size = new System.Drawing.Size(62, 50);
-            this.pB_Enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pB_Enemy2.TabIndex = 6;
-            this.pB_Enemy2.TabStop = false;
             // 
             // pB_Asteroid1
             // 
@@ -153,18 +141,6 @@
             this.pB_Asteroid1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pB_Asteroid1.TabIndex = 7;
             this.pB_Asteroid1.TabStop = false;
-            // 
-            // pB_Enemy3
-            // 
-            this.pB_Enemy3.BackColor = System.Drawing.Color.Transparent;
-            this.pB_Enemy3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pB_Enemy3.Image = global::SpaceAIDS.Properties.Resources.enemy_Red;
-            this.pB_Enemy3.Location = new System.Drawing.Point(169, 189);
-            this.pB_Enemy3.Name = "pB_Enemy3";
-            this.pB_Enemy3.Size = new System.Drawing.Size(62, 50);
-            this.pB_Enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pB_Enemy3.TabIndex = 8;
-            this.pB_Enemy3.TabStop = false;
             // 
             // pB_Buff
             // 
@@ -219,6 +195,30 @@
             this.pB_Bullet.TabIndex = 13;
             this.pB_Bullet.TabStop = false;
             // 
+            // pB_Enemy2
+            // 
+            this.pB_Enemy2.BackColor = System.Drawing.Color.Transparent;
+            this.pB_Enemy2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pB_Enemy2.Image = global::SpaceAIDS.Properties.Resources.enemy_Green;
+            this.pB_Enemy2.Location = new System.Drawing.Point(67, 60);
+            this.pB_Enemy2.Name = "pB_Enemy2";
+            this.pB_Enemy2.Size = new System.Drawing.Size(62, 50);
+            this.pB_Enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pB_Enemy2.TabIndex = 6;
+            this.pB_Enemy2.TabStop = false;
+            // 
+            // pB_Enemy3
+            // 
+            this.pB_Enemy3.BackColor = System.Drawing.Color.Transparent;
+            this.pB_Enemy3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pB_Enemy3.Image = global::SpaceAIDS.Properties.Resources.enemy_Red;
+            this.pB_Enemy3.Location = new System.Drawing.Point(169, 189);
+            this.pB_Enemy3.Name = "pB_Enemy3";
+            this.pB_Enemy3.Size = new System.Drawing.Size(62, 50);
+            this.pB_Enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pB_Enemy3.TabIndex = 8;
+            this.pB_Enemy3.TabStop = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,13 +255,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pB_Health2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Health3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Buff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Asteroid3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Bullet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Enemy3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,13 +275,13 @@
         private System.Windows.Forms.PictureBox pB_Health3;
         private System.Windows.Forms.Label label_Score;
         private System.Windows.Forms.PictureBox pB_Enemy1;
-        private System.Windows.Forms.PictureBox pB_Enemy2;
         private System.Windows.Forms.PictureBox pB_Asteroid1;
-        private System.Windows.Forms.PictureBox pB_Enemy3;
         private System.Windows.Forms.PictureBox pB_Buff;
         private System.Windows.Forms.PictureBox pB_Asteroid2;
         private System.Windows.Forms.PictureBox pB_Asteroid3;
         private System.Windows.Forms.Timer timer_Game;
         private System.Windows.Forms.PictureBox pB_Bullet;
+        private System.Windows.Forms.PictureBox pB_Enemy2;
+        private System.Windows.Forms.PictureBox pB_Enemy3;
     }
 }
